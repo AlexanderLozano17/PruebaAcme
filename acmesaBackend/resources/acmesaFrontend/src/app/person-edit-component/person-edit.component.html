@@ -1,0 +1,63 @@
+<div *ngIf="message!=''" class="alert alert-danger" role="alert">
+   {{ message }}
+  </div>
+
+
+<form [formGroup]="editPersonForm">
+    <div class="form-group">
+        <label for="first_name">Primer Nombre</label>
+        <input type="text"
+            formControlName="first_name"
+            [(ngModel)]="dataEdit.first_name" 
+            class="form-control" 
+            name="firstName">
+    </div>
+
+    <div class="form-group">
+        <label for="second_name">Segundo Nombre</label>
+        <input type="text" 
+            formControlName="second_name"
+            [(ngModel)]="dataEdit.second_name"            
+            class="form-control" 
+            name="secondName">
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Apellidos</label>
+        <input type="text" 
+            formControlName="last_name" 
+            [(ngModel)]="dataEdit.last_name" 
+            class="form-control" 
+            name="lastName">
+    </div>
+
+    <div class="form-group">
+        <label for="address">Dirección</label>
+        <input type="text" 
+            formControlName="address" 
+            [(ngModel)]="dataEdit.address" 
+            class="form-control" 
+            name="address">
+    </div>
+
+    <div class="form-group">
+        <label for="telephone">Telefono</label>
+        <input type="text" 
+            formControlName="telephone"
+            [(ngModel)]="dataEdit.telephone" 
+            class="form-control" 
+            name="telephone">
+    </div>
+
+    <div class="form-group">
+        <label for="city">Ciudad</label>
+        <select class="form-control" 
+            formControlName="city"
+            [(ngModel)]="dataEdit.city" >
+            <option selected value="">SELECCIONE</option>
+            <option *ngFor="let value of cities" value="{{value}}">{{value | uppercase}}</option>
+        </select>
+    </div>
+
+    <button (click)="onSaveForm()" class="btn btn-primary"  Submit>Guardar</button>
+</form>

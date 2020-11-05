@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://acmesabackend.test",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

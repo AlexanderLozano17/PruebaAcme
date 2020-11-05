@@ -1,0 +1,53 @@
+<p>Listado de Personas</p>
+
+<a class="btn btn-primary" routerLink="/person/add">Nueva Persona</a>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th scope="col" class="center">#</th>
+            <th scope="col" class="center">Identificación</th>
+            <th scope="col" class="center">Nombre</th>
+            <th scope="col" class="center">Dirección</th>
+            <th scope="col" class="center">Telefono</th>
+            <th scope="col" class="center">Ciudad</th>
+            <th scope="col" class="center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of listDataPerson; let i=index">
+            <th>{{ i+1 }}</th>
+            <td>{{ person.number_document }}</td>
+            <td>{{ person.first_name | uppercase }} {{ person.second_name | uppercase }} {{ person.last_name  | uppercase }}</td>
+            <td>{{ person.address }}</td>
+            <td>{{ person.telephone }}</td>
+            <td>{{ person.city  | uppercase }}</td>
+            <td>
+                <a  (click)="openModalEditPerson(person.id, i+1)" style="cursor: pointer;">
+                    <i class="material-icons">edit</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!--Modaladiciona persona -->
+<div class="modal fade" id="editPerson" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">{{ idList }}. Editar Nueva</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <app-person-edit [person]="singlePerson"></app-person-edit>
+
+            </div>
+        </div>
+    </div>
+</div>

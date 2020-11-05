@@ -1,0 +1,26 @@
+<p>Listado de Vehiculos</p>
+
+<a class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" routerLink="car/add">Nuevo Vehiculo</a>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th scope="col" class="center">#</th>
+            <th scope="col" class="center">Placa Vehiculo</th>
+            <th scope="col" class="center">Color</th>
+            <th scope="col" class="center">Marca</th>
+            <th scope="col" class="center">Tipo de Operación</th>
+            <th scope="col" class="center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of listCars; let i=index">
+            <th>{{ i+1 }}</th>
+            <td>{{ car.license_plate }}</td>
+            <td>{{ car.color | uppercase }}</td>
+            <td>{{ car.mark }}</td>
+            <td>{{ car.definition  | uppercase }}</td>
+            <td><a [routerLink]="['car/edit', car.id]"><i class="material-icons">edit</i></a></td>
+        </tr>
+    </tbody>
+</table>

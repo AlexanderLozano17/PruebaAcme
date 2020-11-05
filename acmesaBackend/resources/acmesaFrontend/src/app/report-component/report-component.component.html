@@ -1,0 +1,28 @@
+<p>Reportes de Vehiculo y operaciones</p>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th scope="col" class="center">#</th>
+            <th scope="col" class="center">Placa Vehiculo</th>
+            <th scope="col" class="center">Color</th>
+            <th scope="col" class="center">Marca</th>
+            <th scope="col" class="center">Tipo de Operación</th>
+            <th scope="col" class="center">Propietario</th>
+            <th scope="col" class="center">Conductor</th>
+            <th scope="col" class="center">Actividad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let report of dataReport; let i=index">
+            <th>{{ i+1 }}</th>
+            <td>{{ report.license_plate }}</td>
+            <td>{{ report.color | uppercase }}</td>
+            <td>{{ report.mark | uppercase }}</td>
+            <td>{{ report.definition | uppercase}}</td>
+            <td>{{ report.owner_name | uppercase }}</td>
+            <td>{{ report.driver_name | uppercase }}</td>
+            <td>{{ report.name_operation | uppercase }}</td>
+        </tr>
+    </tbody>
+</table>
